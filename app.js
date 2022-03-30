@@ -11,7 +11,7 @@ const app = express();
 app.use(
   cookieSession({
     name:'session',
-    key: [secret],
+    keys: [secret],
 
     //Cookie Options
     maxAge: 24*60*60*1000, //24hour

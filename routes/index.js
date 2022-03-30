@@ -12,8 +12,7 @@ const connection = mysql.createConnection({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(req);
-  const userId = req.session.user.id;
+  const userId = req.session.userid;
   
   const isAuth = Boolean(userId);
   console.log(`isAuth: `+ isAuth);
