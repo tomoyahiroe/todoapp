@@ -7,6 +7,7 @@
     <title><%=title %></title>
 </head>
 <body>
+    <%- include('./error_massage'); %>
     <form action="/signin" method="post">
         <label>ユーザ名</label>
         <input require type="text" name="username"/>

@@ -1,0 +1,11 @@
+<% if (typeof errorMassage === 'undefined'){errorMassage = [];} %>
+<% if (errorMassage.length !== 0) { %>
+    <div><strong>Waning!</strong>The form contains <%= errorMassage.length %> error.</div>
+    <div>
+        <ul>
+            <% for(let item of errorMassage){ %>
+                <li><%= item %></li>
+            <% } %>
+        </ul>
+    </div>
+<% } %>
