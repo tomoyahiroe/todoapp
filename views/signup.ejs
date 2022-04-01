@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <title><%= title %></title>
     <meta name="viewpoint" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
   </head>
   <body>
+    <%- include('./header.ejs'); %>
     <%- include('./error_massage'); %>
-    <form action="/signup" method="post">
-        <label>ユーザ名</label>
-        <input required type="text" name="username"/>
-        <br>
-        <label>パスワード</label>
-        <input required type="password" name="password"/>
-        <br>
-        <label>パスワード再入力</label>
-        <input required type="text" name="repassword"/>
-        <br>
-        <input type="submit" value="Sign up"/>
-    </form>
+    <div class="container">
+      <form action="/signup" method="post">
+          <label>ユーザ名</label>
+          <input required type="text" name="username"/>
+          <br>
+          <label>パスワード</label>
+          <input required type="password" name="password"/>
+          <br>
+          <label>パスワード再入力</label>
+          <input required type="text" name="repassword"/>
+          <br>
+          <input class="btn btn-primary" type="submit" value="Sign up"/>
+      </form>
+    </div>
   </body>
 </html>

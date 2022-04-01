@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <title><%=title %></title>
 </head>
 <body>
+    <%- include('./header.ejs'); %>
     <%- include('./error_massage'); %>
-    <form action="/signin" method="post">
-        <label>ユーザ名</label>
-        <input require type="text" name="username"/>
-        <br>
-        <label>パスワード</label>
-        <input require type="password" name="password"/>
-        <br>
-        <input type="submit" value="Sign in">
-    </form>
+    <div class="container">
+        <form action="/signin" method="post">
+            <label>ユーザ名</label>
+            <input require type="text" name="username"/>
+            <br>
+            <label>パスワード</label>
+            <input require type="password" name="password"/>
+            <br>
+            <input class="btn btn-primary" type="submit" value="Sign in">
+        </form>
+    </div>
 </body>
 </html>
