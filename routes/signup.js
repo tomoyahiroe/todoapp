@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const knex = require('../db/knex');
+const bcrypt = require('bcrypt')
 
 router.get('/', function(req, res, next) {
     const userId = req.session.userid;
@@ -29,8 +30,9 @@ router.post('/', function(req, res, next) {
                 errorMassage: ['このユーザ名は既に使われています'],
             })
          } else if (password === repassword) { //all clearの時
+            const hashedPassword = bcrypt.hash(password,10);
              knex('users')
-              .insert({name: username,password: password})
+              .insert({name: username,password: hashedPassword})
               .then(function() {
                   res.redirect('/');
               })
