@@ -1,5 +1,5 @@
 // Update with your config settings.
-
+const rootPassword = 'hidden' //これでしっかり動作するか確認必須。
 module.exports = {
 
   development: {
@@ -7,7 +7,7 @@ module.exports = {
     connection: {
       database: "todo_app",
       user: "root",
-      password: "##Tomsql4dataSecure##",
+      password: rootPassword,
     },
     pool: {
       min: 2,
@@ -20,7 +20,7 @@ module.exports = {
     connection: {
       database: "todo_app",
       user: "root",
-      password: "##Tomsql4dataSecure##",
+      password: rootPassword,
     },
     pool: {
       min: 2,
@@ -33,7 +33,7 @@ module.exports = {
     connection: {
       database: "todo_app",
       user: "root",
-      password: "##Tomsql4dataSecure##",
+      password: rootPassword,
     },
     pool: {
       min: 2,
