@@ -1,5 +1,8 @@
 // Update with your config settings.
-const rootPassword = 'hidden' //これでしっかり動作するか確認必須。
+const fs = require('fs-extra');
+const homedir = require('os').homedir();
+const foo = fs.readJSONSync(`${homedir}/access.json`);
+const rootPassword = foo.mysql 
 module.exports = {
 
   development: {

@@ -2,11 +2,15 @@ const express = require('express');
 const router = express.Router();
 const knex = require('../db/knex');
 const mysql = require('mysql');
+const fs = require('fs-extra');
+const homedir = require('os').homedir();
+const foo = fs.readJSONSync(`${homedir}/access.json`);
+const rootPassword = foo.mysql 
 
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '##Tomsql4dataSecure##',
+  password: rootPassword,
   database: 'todo_app'
 });
 
