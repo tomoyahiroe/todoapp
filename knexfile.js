@@ -7,7 +7,7 @@ module.exports = {
     connection: {
       database: "todo_app",
       user: "root",
-      password: "##Tomsql4dataSecure##",
+      password: "hidden",
     },
     pool: {
       min: 2,

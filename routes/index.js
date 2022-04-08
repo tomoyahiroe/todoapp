@@ -6,7 +6,7 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '##Tomsql4dataSecure##',
+  password: 'hidden',
   database: 'todo_app'
 });
 

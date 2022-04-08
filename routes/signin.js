@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const knex = require('../db/knex.js')
+const bcrypt = require('bcrypt');
 
 router.get('/', function (req, res, next) {
     const userId = req.session.userid;
@@ -21,20 +22,24 @@ router.post('/', function (req, res, next) {
     knex('users')
      .where({
          name: username,
-         password: password,
      })
      .select('*')
-     .then(function(result) {
+     .then(async function(result) {
          if (result.length === 0) {
              res.render('signin',{
                  title: 'Sign in',
                  isAuth: isAuth,
                  errorMassage:['ユーザが見つかりません'],
              });
-         } else {
+         } else if(comparedPassword = bcrypt.compare(password, result[0].password)) {
              req.session.userid = result[0].id;
              res.redirect('/');
-             
+         } else {
+             res.render('signin', {
+                 title: 'Sign in',
+                 errorMassage: ['パスワードが一致しません'],
+                 isAuth: isAuth,
+             })
          }
      })
      .catch(function (err){
