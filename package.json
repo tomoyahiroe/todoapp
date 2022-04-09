@@ -12,10 +12,13 @@
     "debug": "~2.6.9",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
+    "fs": "^0.0.1-security",
+    "fs-extra": "^10.0.1",
     "http-errors": "~1.6.3",
     "knex": "^1.0.4",
     "morgan": "~1.9.1",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "os": "^0.1.2"
   },
   "main": "index.js",
   "license": "MIT"

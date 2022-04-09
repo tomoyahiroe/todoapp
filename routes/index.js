@@ -2,11 +2,16 @@ const express = require('express');
 const router = express.Router();
 const knex = require('../db/knex');
 const mysql = require('mysql');
+const fse = require('fs-extra');
+
+const homedir = require('os').homedir();
+const foo = fse.readJsonSync(`${homedir}/access.json`);
+const rootPass = foo.mysql;
 
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'hidden',
+  password: rootPass,
   database: 'todo_app'
 });
 

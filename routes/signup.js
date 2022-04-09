@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
     knex('users')
      .where({name: username})
      .select('*')
-     .then(function(result) {
+     .then( async function(result) {
          if (result.length !== 0) { //入力されたusernameがnameカラムに既存するとき
             res.render('signup', {
                 title: 'Sign up',
@@ -30,7 +30,7 @@ router.post('/', function(req, res, next) {
                 errorMassage: ['このユーザ名は既に使われています'],
             })
          } else if (password === repassword) { //all clearの時
-            const hashedPassword = bcrypt.hash(password,10);
+            const hashedPassword = await bcrypt.hash(password,10);
              knex('users')
               .insert({name: username,password: hashedPassword})
               .then(function() {

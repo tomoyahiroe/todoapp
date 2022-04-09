@@ -1,4 +1,8 @@
 // Update with your config settings.
+const fse = require('fs-extra');
+const homedir = require('os').homedir();
+const foo = fse.readJsonSync(`${homedir}/access.json`);
+const rootPass = foo.mysql;
 
 module.exports = {
 
@@ -7,7 +11,7 @@ module.exports = {
     connection: {
       database: "todo_app",
       user: "root",
-      password: "hidden",
+      password: rootPass,
     },
     pool: {
       min: 2,
@@ -20,7 +24,7 @@ module.exports = {
     connection: {
       database: "todo_app",
       user: "root",
-      password: "##Tomsql4dataSecure##",
+      password: rootPass,
     },
     pool: {
       min: 2,
@@ -33,7 +37,7 @@ module.exports = {
     connection: {
       database: "todo_app",
       user: "root",
-      password: "##Tomsql4dataSecure##",
+      password: rootPass,
     },
     pool: {
       min: 2,
